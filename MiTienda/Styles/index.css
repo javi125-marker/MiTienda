@@ -1,0 +1,121 @@
+
+
+.font-green {
+    color: rgb(42, 134, 42) !important;
+    background: rgb(173, 245, 173) !important;
+}
+
+.font-red {
+    color: rgb(166, 55, 55) !important;
+    background: rgb(255, 185, 190) !important;
+}
+
+.category-container {
+    display:flex;
+    width: 100%;
+    height: 2.5rem;
+    align-items: center;
+}
+
+.category-item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    border: none;
+    align-items:center;
+    background: transparent !important;
+}
+
+.category-item:hover {
+    background: blue !important;
+    color: white;
+}
+
+.show-eye {
+    position:absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.cart-counter {
+    width:fit-content;
+    min-width: 20px;
+    border-radius: 50%;
+    position:absolute;
+    top: -2px;
+    right: -2px;
+    font-size:12px;
+}
+
+.b-rounded {
+    border-radius: 50% !important;
+}
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    max-width: 600px;
+    min-width:250px;
+    align-items: center;
+    gap: 1rem;
+}
+
+.card-cart {
+    width: 100%;
+    max-width: 650px;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    align-items: center;
+    border: 1px solid gray;
+    position: relative;
+    padding: 10px;
+    background: white;
+}
+
+.card-cart-text {
+    display: flex;
+    padding: 10px;
+}
+
+.card-cart-btns {
+    width: 100%;
+    margin-top: 2rem;
+    box-sizing: border-box;
+    padding: 10px; 
+}
+
+.card-cart img {
+    display: flex;
+    width: calc(100% - 10px);
+    margin-left: 10px
+}
+
+.b-delete {
+    position: absolute;
+    top: 5px;
+    right: 10px; 
+    border: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+i {
+    pointer-events: none;
+}
+
+@media screen and (max-width: 620px) {
+    .card-cart {
+        width: 100%;
+        max-width: 650px;
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        align-items: center;
+        border: 1px solid gray;
+        background: white;
+        position: relative
+    }
+}

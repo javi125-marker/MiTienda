@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+}
+
+<h1 class="mt-4 text-primary d-flex justify-content-center">Bienvenidos al sistema</h1>
+<div class="row">
+    <div class="col-4">
+        <div class="card bg-light mb-4">
+            <div class="card-body">
+                <div class="d-flex flex-column align-items-center justify-content-center">
+                    <div>Productos</div>
+                    <h1 id="total-productos" class="">0</h1>
+                    <a class="small text-dark stretched-link" href="@Url.Action(" Producto","Panel")"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card bg-light mb-4">
+            <div class="card-body">
+                <div class="d-flex flex-column align-items-center justify-content-center">
+                    <div>Marcas</div>
+                    <h1 id="total-marcas">0</h1>
+                    <a class="small text-white stretched-link" href="@Url.Action(" Marca","Panel")"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card bg-light mb-4">
+            <div class="card-body">
+                <div class="d-flex flex-column align-items-center justify-content-center">
+                    <div>Categorias</div>
+                    <h1 id="total-categorias">0</h1>
+                    <a class="small text-white stretched-link" href="@Url.Action(" Categoria","Panel")"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+
+    <script>
+        $(document).ready(function () {
+            jQuery.ajax({
+                url: '@Url.Action("ListarProducto", "Panel")',
+                type: "GET",
+                data: null,
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                  
+                    if (data.data != null) {
+                        $("#total-productos").text(data.data.length);
+                    }
+                },
+                error: function (error) {
+                    console.log(error)
+                },
+                beforeSend: function () {
+
+                },
+            });
+
+             jQuery.ajax({
+                url: '@Url.Action("ListarMarca", "Panel")',
+                type: "GET",
+                data: null,
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (data.data != null) {
+                        $("#total-marcas").text(data.data.length);
+                    }
+                },
+                error: function (error) {
+                    console.log(error)
+                },
+                beforeSend: function () {
+
+                },
+            });
+
+             jQuery.ajax({
+                url: '@Url.Action("ListarCategoria", "Panel")',
+                type: "GET",
+                data: null,
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (data.data != null) {
+                        $("#total-categorias").text(data.data.length);
+                    }
+                },
+                error: function (error) {
+                    console.log(error)
+                },
+                beforeSend: function () {
+
+                },
+            });
+
+        })
+    </script>
+
+}
